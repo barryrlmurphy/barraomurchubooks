@@ -2,17 +2,6 @@
    About Page Styles
    ======================================== */
 
-/* Hero Photo */
-.hero-photo {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-}
-
-.hero-photo.placeholder-image {
-    font-size: 18px;
-}
-
 /* About Content */
 .about-content {
     padding: 80px 40px;
@@ -26,6 +15,19 @@
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 40px;
+}
+
+/* Author Photo - Small Circular */
+.author-photo-small {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 40px;
+}
+
+.author-photo-small.placeholder-image {
+    font-size: 14px;
 }
 
 .about-text {
@@ -71,7 +73,8 @@
         font-size: 36px;
     }
 
-    .hero-photo {
-        height: 300px;
+    .author-photo-small {
+        width: 150px;
+        height: 150px;
     }
 }
