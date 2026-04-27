@@ -1,0 +1,137 @@
+/* ========================================
+   Books Page Styles
+   ======================================== */
+
+/* Featured Book */
+.featured-book {
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.book-cover {
+    width: 400px;
+    height: 600px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.book-cover.placeholder-image {
+    font-size: 18px;
+}
+
+.book-info {
+    flex: 1;
+}
+
+.book-title {
+    font-family: var(--font-serif);
+    font-size: 64px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.book-subtitle {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin-bottom: 30px;
+}
+
+.book-blurb {
+    font-size: 17px;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.book-blurb p {
+    margin-bottom: 20px;
+}
+
+.book-blurb p:last-child {
+    margin-bottom: 0;
+}
+
+.buy-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Coming Soon Section */
+.coming-soon {
+    padding: 80px 40px;
+    background-color: var(--color-nav);
+}
+
+.coming-soon-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.future-book-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    padding: 40px;
+    opacity: 0.6;
+}
+
+.future-book-title {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 10px;
+}
+
+.future-book-status {
+    font-size: 14px;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Responsive - Books */
+@media (max-width: 900px) {
+    .featured-book {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-cover {
+        width: 300px;
+        height: 450px;
+    }
+
+    .book-title {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 600px) {
+    .book-title {
+        font-size: 36px;
+    }
+
+    .buy-buttons {
+        flex-direction: column;
+    }
+
+    .buy-buttons a {
+        text-align: center;
+    }
+}

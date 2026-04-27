@@ -7,476 +7,94 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --color-bg: #0f0e0d;
-            --color-nav: #1a1917;
-            --color-gold: #b8975a;
-            --color-gold-hover: #d4af6a;
-            --color-text: #e8e6e3;
-            --color-text-muted: #a09a92;
-            --color-border: #2a2826;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', system-ui, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            padding-top: 110px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Newsletter Banner - Fixed */
-        .newsletter-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001;
-            background-color: var(--color-bg);
-            border-bottom: 1px solid var(--color-border);
-            padding: 10px 20px;
-        }
-
-        .newsletter-banner-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .newsletter-banner span {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .newsletter-banner input[type="email"] {
-            background-color: var(--color-nav);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-            padding: 8px 14px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            width: 220px;
-        }
-
-        .newsletter-banner input[type="email"]::placeholder {
-            color: var(--color-text-muted);
-        }
-
-        .newsletter-banner input[type="email"]:focus {
-            outline: none;
-            border-color: var(--color-gold);
-        }
-
-        .newsletter-banner button {
-            background-color: var(--color-gold);
-            color: var(--color-bg);
-            border: none;
-            padding: 8px 18px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .newsletter-banner button:hover {
-            background-color: var(--color-gold-hover);
-        }
-
-        /* Navigation - Fixed */
-        .nav {
-            position: fixed;
-            top: 48px;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background-color: var(--color-nav);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 18px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-author {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            color: var(--color-text-muted);
-            transition: color 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--color-gold);
-        }
-
-        .nav-rule {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: var(--color-gold);
-            opacity: 0.4;
-        }
-
-        /* Page Header */
-        .page-header {
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .page-title {
-            font-family: var(--font-serif);
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .page-subtitle {
-            font-family: var(--font-serif);
-            font-size: 18px;
-            font-style: italic;
-            color: var(--color-text-muted);
-        }
-
-        /* Contact Form */
-        .contact-form-section {
-            padding: 60px 40px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            color: var(--color-text-muted);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 14px 16px;
-            background-color: var(--color-nav);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-            font-size: 16px;
-            font-family: var(--font-sans);
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input::placeholder,
-        .form-textarea::placeholder {
-            color: var(--color-text-muted);
-        }
-
-        .form-input:focus,
-        .form-textarea:focus {
-            outline: none;
-            border-color: var(--color-gold);
-        }
-
-        .form-textarea {
-            min-height: 180px;
-            resize: vertical;
-        }
-
-        .btn-gold {
-            display: inline-block;
-            background-color: var(--color-gold);
-            color: var(--color-bg);
-            padding: 14px 32px;
-            font-size: 15px;
-            font-family: var(--font-sans);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
-
-        .btn-gold:hover {
-            background-color: var(--color-gold-hover);
-        }
-
-        /* Email Link */
-        .email-link {
-            padding: 40px;
-            text-align: center;
-        }
-
-        .email-link a {
-            color: var(--color-gold);
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-
-        .email-link a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        /* Social Links */
-        .social-links {
-            padding: 60px 40px;
-            text-align: center;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .social-links-inner {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .social-links a {
-            color: var(--color-gold);
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        .social-links span {
-            color: var(--color-border);
-            font-size: 14px;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--color-bg);
-            padding: 40px;
-            border-top: 1px solid var(--color-gold);
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .footer-social a {
-            color: var(--color-gold);
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        .footer-social span {
-            color: var(--color-border);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            color: var(--color-text-muted);
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--color-gold);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            body {
-                padding-top: 100px;
-            }
-
-            .page-title {
-                font-size: 36px;
-            }
-
-            .nav-inner {
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-inner {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .newsletter-banner-inner {
-                flex-direction: column;
-            }
-
-            .newsletter-banner input[type="email"] {
-                width: 100%;
-                max-width: 280px;
-            }
-
-            .social-links-inner {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages/contact.css">
 </head>
 <body>
-    <!-- Newsletter Banner -->
-    <div class="newsletter-banner">
-        <div class="newsletter-banner-inner">
-            <span>Sign up for news from Barra Ó Murchú</span>
-            <input type="email" placeholder="Your email address">
-            <button>Subscribe</button>
-        </div>
+<!-- Newsletter Banner -->
+<div class="newsletter-banner">
+    <div class="newsletter-banner-inner">
+        <span>Sign up for news from Barra Ó Murchú</span>
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
     </div>
+</div>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-author">Barra Ó Murchú</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </div>
-        <div class="nav-rule"></div>
-    </nav>
-
-    <!-- Page Header -->
-    <header class="page-header">
-        <h1 class="page-title">Contact</h1>
-        <p class="page-subtitle">For rights, press, or reader enquiries, get in touch.</p>
-    </header>
-
-    <!-- Contact Form -->
-    <section class="contact-form-section">
-        <form>
-            <div class="form-group">
-                <label class="form-label" for="name">Name</label>
-                <input type="text" id="name" class="form-input" placeholder="Your name">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="email">Email</label>
-                <input type="email" id="email" class="form-input" placeholder="Your email address">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="message">Message</label>
-                <textarea id="message" class="form-textarea" rows="6" placeholder="Your message..."></textarea>
-            </div>
-            <button type="submit" class="btn-gold">Send</button>
-        </form>
-    </section>
-
-    <!-- Email Link -->
-    <div class="email-link">
-        <a href="mailto:hello@barraomurchubooks.com">hello@barraomurchubooks.com</a>
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-author">Barra Ó Murchú</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
     </div>
+    <div class="nav-rule"></div>
+</nav>
 
-    <!-- Social Links -->
-    <div class="social-links">
-        <div class="social-links-inner">
+<!-- Page Header -->
+<header class="page-header">
+    <h1 class="page-title">Contact</h1>
+    <p class="page-subtitle">For rights, press, or reader enquiries, get in touch.</p>
+</header>
+
+<!-- Contact Form -->
+<section class="contact-form-section">
+    <form>
+        <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" class="form-input" placeholder="Your name">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" class="form-input" placeholder="Your email address">
+        </div>
+        <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" class="form-textarea" rows="6" placeholder="Your message..."></textarea>
+        </div>
+        <button type="submit" class="btn-gold">Send</button>
+    </form>
+</section>
+
+<!-- Email Link -->
+<div class="email-link">
+    <a href="mailto:hello@barraomurchubooks.com">hello@barraomurchubooks.com</a>
+</div>
+
+<!-- Social Links -->
+<div class="social-links">
+    <div class="social-links-inner">
+        <a href="#">Instagram</a>
+        <span>·</span>
+        <a href="#">Facebook</a>
+        <span>·</span>
+        <a href="#">Goodreads</a>
+        <span>·</span>
+        <a href="#">Amazon Author Page</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <p class="footer-copyright">© Barra Ó Murchú 2026</p>
+        <div class="footer-social">
             <a href="#">Instagram</a>
-            <span>·</span>
+            <span>|</span>
             <a href="#">Facebook</a>
-            <span>·</span>
+            <span>|</span>
             <a href="#">Goodreads</a>
-            <span>·</span>
-            <a href="#">Amazon Author Page</a>
+            <span>|</span>
+            <a href="#">Amazon</a>
+        </div>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <p class="footer-copyright">© Barra Ó Murchú 2026</p>
-            <div class="footer-social">
-                <a href="#">Instagram</a>
-                <span>|</span>
-                <a href="#">Facebook</a>
-                <span>|</span>
-                <a href="#">Goodreads</a>
-                <span>|</span>
-                <a href="#">Amazon</a>
-            </div>
-            <div class="footer-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </footer>
+</footer>
 </body>
 </html>

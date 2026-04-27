@@ -7,433 +7,86 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --color-bg: #0f0e0d;
-            --color-nav: #1a1917;
-            --color-gold: #b8975a;
-            --color-gold-hover: #d4af6a;
-            --color-text: #e8e6e3;
-            --color-text-muted: #a09a92;
-            --color-border: #2a2826;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', system-ui, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            padding-top: 110px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Newsletter Banner - Fixed */
-        .newsletter-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001;
-            background-color: var(--color-bg);
-            border-bottom: 1px solid var(--color-border);
-            padding: 10px 20px;
-        }
-
-        .newsletter-banner-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .newsletter-banner span {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .newsletter-banner input[type="email"] {
-            background-color: var(--color-nav);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-            padding: 8px 14px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            width: 220px;
-        }
-
-        .newsletter-banner input[type="email"]::placeholder {
-            color: var(--color-text-muted);
-        }
-
-        .newsletter-banner input[type="email"]:focus {
-            outline: none;
-            border-color: var(--color-gold);
-        }
-
-        .newsletter-banner button {
-            background-color: var(--color-gold);
-            color: var(--color-bg);
-            border: none;
-            padding: 8px 18px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .newsletter-banner button:hover {
-            background-color: var(--color-gold-hover);
-        }
-
-        /* Navigation - Fixed */
-        .nav {
-            position: fixed;
-            top: 48px;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background-color: var(--color-nav);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 18px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-author {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            color: var(--color-text-muted);
-            transition: color 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--color-gold);
-        }
-
-        .nav-rule {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: var(--color-gold);
-            opacity: 0.4;
-        }
-
-        /* Hero Photo */
-        .hero-photo {
-            width: 100%;
-            height: 400px;
-            background-color: #2a2826;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-text-muted);
-            font-size: 18px;
-        }
-
-        /* About Content */
-        .about-content {
-            padding: 80px 40px;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-title {
-            font-family: var(--font-serif);
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .about-text {
-            font-family: var(--font-serif);
-            font-size: 18px;
-            color: var(--color-text-muted);
-            line-height: 1.9;
-            margin-bottom: 25px;
-        }
-
-        /* Book Link Section */
-        .book-link {
-            padding: 40px;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .book-link-title {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .book-link-text {
-            font-size: 16px;
-            color: var(--color-text-muted);
-        }
-
-        .book-link-text a {
-            color: var(--color-gold);
-            transition: color 0.3s ease;
-        }
-
-        .book-link-text a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        /* Social Links */
-        .social-links {
-            padding: 60px 40px;
-            text-align: center;
-            border-top: 1px solid var(--color-border);
-        }
-
-        .social-links-inner {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .social-links a {
-            color: var(--color-gold);
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        .social-links span {
-            color: var(--color-border);
-            font-size: 14px;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--color-bg);
-            padding: 40px;
-            border-top: 1px solid var(--color-gold);
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .footer-social a {
-            color: var(--color-gold);
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        .footer-social span {
-            color: var(--color-border);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            color: var(--color-text-muted);
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--color-gold);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            body {
-                padding-top: 100px;
-            }
-
-            .about-title {
-                font-size: 36px;
-            }
-
-            .hero-photo {
-                height: 300px;
-            }
-
-            .nav-inner {
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-inner {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .newsletter-banner-inner {
-                flex-direction: column;
-            }
-
-            .newsletter-banner input[type="email"] {
-                width: 100%;
-                max-width: 280px;
-            }
-
-            .social-links-inner {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages/about.css">
 </head>
 <body>
-    <!-- Newsletter Banner -->
-    <div class="newsletter-banner">
-        <div class="newsletter-banner-inner">
-            <span>Sign up for news from Barra Ó Murchú</span>
-            <input type="email" placeholder="Your email address">
-            <button>Subscribe</button>
-        </div>
+<!-- Newsletter Banner -->
+<div class="newsletter-banner">
+    <div class="newsletter-banner-inner">
+        <span>Sign up for news from Barra Ó Murchú</span>
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
     </div>
+</div>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-author">Barra Ó Murchú</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html">Books</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-        <div class="nav-rule"></div>
-    </nav>
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-author">Barra Ó Murchú</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html">Books</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="nav-rule"></div>
+</nav>
 
-    <!-- Hero Photo -->
-    <div class="hero-photo">Author Photo</div>
+<!-- Hero Photo -->
+<!-- Replace with: <img src="images/author-landscape.jpg" alt="Barra Ó Murchú" class="hero-photo"> -->
+<div class="hero-photo placeholder-image">Author Photo</div>
 
-    <!-- About Content -->
-    <section class="about-content">
-        <h1 class="about-title">About the Author</h1>
-        <p class="about-text">
-            Barra Ó Murchú writes historical fiction set in medieval Ireland, bringing forgotten kings and lost battles back to life. His work explores the human stories behind the myths—the ambition, the betrayal, and the cost of power in a world where kingdoms rose and fell on the edge of a sword.
-        </p>
-        <p class="about-text">
-            Born and raised in County Clare, Barra grew up walking the same hills and coastlines that Brian Boru once called home. That landscape—wild, beautiful, and haunted by history—shaped his imagination and eventually drew him to tell the stories it holds.
-        </p>
-        <p class="about-text">
-            When not writing, Barra can be found exploring ancient monastic sites, reading medieval annals, or walking the windswept beaches of the west coast. He lives in Ireland with his wife and two children.
-        </p>
-    </section>
+<!-- About Content -->
+<section class="about-content">
+    <h1 class="about-title">About the Author</h1>
+    <p class="about-text">
+        Barra Ó Murchú writes historical fiction set in medieval Ireland, bringing forgotten kings and lost battles back to life. His work explores the human stories behind the myths—the ambition, the betrayal, and the cost of power in a world where kingdoms rose and fell on the edge of a sword.
+    </p>
+    <p class="about-text">
+        Born and raised in County Clare, Barra grew up walking the same hills and coastlines that Brian Boru once called home. That landscape—wild, beautiful, and haunted by history—shaped his imagination and eventually drew him to tell the stories it holds.
+    </p>
+    <p class="about-text">
+        When not writing, Barra can be found exploring ancient monastic sites, reading medieval annals, or walking the windswept beaches of the west coast. He lives in Ireland with his wife and two children.
+    </p>
+</section>
 
-    <!-- Book Link -->
-    <section class="book-link">
-        <h2 class="book-link-title">Boru</h2>
-        <p class="book-link-text">His debut novel tells the epic story of Brian Boru's rise to High King. <a href="books.html">Read more about the book →</a></p>
-    </section>
+<!-- Book Link -->
+<section class="book-link">
+    <h2 class="book-link-title">Boru</h2>
+    <p class="book-link-text">His debut novel tells the epic story of Brian Boru's rise to High King. <a href="books.html">Read more about the book →</a></p>
+</section>
 
-    <!-- Social Links -->
-    <div class="social-links">
-        <div class="social-links-inner">
+<!-- Social Links -->
+<div class="social-links">
+    <div class="social-links-inner">
+        <a href="#">Instagram</a>
+        <span>·</span>
+        <a href="#">Facebook</a>
+        <span>·</span>
+        <a href="#">Goodreads</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <p class="footer-copyright">© Barra Ó Murchú 2026</p>
+        <div class="footer-social">
             <a href="#">Instagram</a>
-            <span>·</span>
+            <span>|</span>
             <a href="#">Facebook</a>
-            <span>·</span>
+            <span>|</span>
             <a href="#">Goodreads</a>
+            <span>|</span>
+            <a href="#">Amazon</a>
+        </div>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <p class="footer-copyright">© Barra Ó Murchú 2026</p>
-            <div class="footer-social">
-                <a href="#">Instagram</a>
-                <span>|</span>
-                <a href="#">Facebook</a>
-                <span>|</span>
-                <a href="#">Goodreads</a>
-                <span>|</span>
-                <a href="#">Amazon</a>
-            </div>
-            <div class="footer-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </footer>
+</footer>
 </body>
 </html>

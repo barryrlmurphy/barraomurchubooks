@@ -7,520 +7,86 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        :root {
-            --color-bg: #0f0e0d;
-            --color-nav: #1a1917;
-            --color-gold: #b8975a;
-            --color-gold-hover: #d4af6a;
-            --color-text: #e8e6e3;
-            --color-text-muted: #a09a92;
-            --color-border: #2a2826;
-            --font-serif: 'Playfair Display', Georgia, serif;
-            --font-sans: 'Inter', system-ui, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-sans);
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-            padding-top: 110px;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        /* Newsletter Banner - Fixed */
-        .newsletter-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001;
-            background-color: var(--color-bg);
-            border-bottom: 1px solid var(--color-border);
-            padding: 10px 20px;
-        }
-
-        .newsletter-banner-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .newsletter-banner span {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .newsletter-banner input[type="email"] {
-            background-color: var(--color-nav);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
-            padding: 8px 14px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            width: 220px;
-        }
-
-        .newsletter-banner input[type="email"]::placeholder {
-            color: var(--color-text-muted);
-        }
-
-        .newsletter-banner input[type="email"]:focus {
-            outline: none;
-            border-color: var(--color-gold);
-        }
-
-        .newsletter-banner button {
-            background-color: var(--color-gold);
-            color: var(--color-bg);
-            border: none;
-            padding: 8px 18px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .newsletter-banner button:hover {
-            background-color: var(--color-gold-hover);
-        }
-
-        /* Navigation - Fixed */
-        .nav {
-            position: fixed;
-            top: 48px;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background-color: var(--color-nav);
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 18px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-author {
-            font-family: var(--font-serif);
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-size: 15px;
-            color: var(--color-text-muted);
-            transition: color 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--color-gold);
-        }
-
-        .nav-rule {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: var(--color-gold);
-            opacity: 0.4;
-        }
-
-        /* Page Header */
-        .page-header {
-            padding: 60px 40px;
-            text-align: center;
-        }
-
-        .page-title {
-            font-family: var(--font-serif);
-            font-size: 56px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .page-title-rule {
-            width: 80px;
-            height: 1px;
-            background-color: var(--color-gold);
-            margin: 0 auto;
-            opacity: 0.6;
-        }
-
-        /* Featured Book */
-        .featured-book {
-            padding: 80px 40px;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            gap: 60px;
-            align-items: flex-start;
-        }
-
-        .book-cover {
-            width: 400px;
-            height: 600px;
-            background-color: #2a2826;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-text-muted);
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .book-info {
-            flex: 1;
-        }
-
-        .book-title {
-            font-family: var(--font-serif);
-            font-size: 64px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .book-subtitle {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-style: italic;
-            color: var(--color-text-muted);
-            margin-bottom: 30px;
-        }
-
-        .book-blurb {
-            font-size: 17px;
-            color: var(--color-text-muted);
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .book-blurb p {
-            margin-bottom: 20px;
-        }
-
-        .book-blurb p:last-child {
-            margin-bottom: 0;
-        }
-
-        .buy-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .btn-gold {
-            display: inline-block;
-            background-color: var(--color-gold);
-            color: var(--color-bg);
-            padding: 14px 28px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            border: none;
-        }
-
-        .btn-gold:hover {
-            background-color: var(--color-gold-hover);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--color-gold);
-            padding: 14px 28px;
-            font-size: 14px;
-            font-family: var(--font-sans);
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--color-gold);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--color-gold);
-            color: var(--color-bg);
-        }
-
-        /* Coming Soon Section */
-        .coming-soon {
-            padding: 80px 40px;
-            background-color: var(--color-nav);
-        }
-
-        .coming-soon-inner {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
-
-        .future-book-card {
-            background-color: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--color-border);
-            padding: 40px;
-            opacity: 0.6;
-        }
-
-        .future-book-title {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--color-text-muted);
-            margin-bottom: 10px;
-        }
-
-        .future-book-status {
-            font-size: 14px;
-            color: var(--color-gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--color-bg);
-            padding: 40px;
-            border-top: 1px solid var(--color-gold);
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-copyright {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .footer-social a {
-            color: var(--color-gold);
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--color-gold-hover);
-        }
-
-        .footer-social span {
-            color: var(--color-border);
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 25px;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            color: var(--color-text-muted);
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--color-gold);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            body {
-                padding-top: 100px;
-            }
-
-            .featured-book {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .book-cover {
-                width: 300px;
-                height: 450px;
-            }
-
-            .book-title {
-                font-size: 48px;
-            }
-
-            .page-title {
-                font-size: 42px;
-            }
-
-            .nav-inner {
-                padding: 15px 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .footer-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .nav-inner {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .book-title {
-                font-size: 36px;
-            }
-
-            .newsletter-banner-inner {
-                flex-direction: column;
-            }
-
-            .newsletter-banner input[type="email"] {
-                width: 100%;
-                max-width: 280px;
-            }
-
-            .buy-buttons {
-                flex-direction: column;
-            }
-
-            .buy-buttons a {
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pages/books.css">
 </head>
 <body>
-    <!-- Newsletter Banner -->
-    <div class="newsletter-banner">
-        <div class="newsletter-banner-inner">
-            <span>Sign up for news from Barra Ó Murchú</span>
-            <input type="email" placeholder="Your email address">
-            <button>Subscribe</button>
+<!-- Newsletter Banner -->
+<div class="newsletter-banner">
+    <div class="newsletter-banner-inner">
+        <span>Sign up for news from Barra Ó Murchú</span>
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
+    </div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-author">Barra Ó Murchú</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="books.html" class="active">Books</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="nav-rule"></div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+    <h1 class="page-title">Books</h1>
+    <div class="page-title-rule"></div>
+</header>
+
+<!-- Featured Book -->
+<section class="featured-book">
+    <!-- Replace with: <img src="images/boru-cover.jpg" alt="BORU book cover" class="book-cover"> -->
+    <div class="book-cover placeholder-image">BORU Cover</div>
+    <div class="book-info">
+        <h2 class="book-title">BORU</h2>
+        <p class="book-subtitle">A Novel by Barra Ó Murchú</p>
+        <div class="book-blurb">
+            <p>In tenth-century Ireland, a young warrior rises from the ashes of his murdered family to challenge the Viking invaders and the fractured kings who let them reign. Brian Boru's journey from outlaw to High King is a story of ambition, sacrifice, and the terrible price of unity.</p>
+            <p>From the windswept cliffs of Clare to the blood-soaked battlefield of Clontarf, BORU brings medieval Ireland to vivid life—a world of treacherous alliances, ancient rivalries, and the relentless pursuit of an impossible dream.</p>
+        </div>
+        <div class="buy-buttons">
+            <a href="#" class="btn-gold">Coming Soon on Amazon</a>
+            <a href="#" class="btn-outline">Add to Goodreads shelf</a>
         </div>
     </div>
+</section>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="index.html" class="nav-author">Barra Ó Murchú</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="books.html" class="active">Books</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+<!-- Coming Soon -->
+<section class="coming-soon">
+    <div class="coming-soon-inner">
+        <h2 class="section-title">Coming Soon</h2>
+        <div class="future-book-card">
+            <p class="future-book-title">New Title</p>
+            <p class="future-book-status">Coming Soon</p>
         </div>
-        <div class="nav-rule"></div>
-    </nav>
+    </div>
+</section>
 
-    <!-- Page Header -->
-    <header class="page-header">
-        <h1 class="page-title">Books</h1>
-        <div class="page-title-rule"></div>
-    </header>
-
-    <!-- Featured Book -->
-    <section class="featured-book">
-        <div class="book-cover">BORU Cover</div>
-        <div class="book-info">
-            <h2 class="book-title">BORU</h2>
-            <p class="book-subtitle">A Novel by Barra Ó Murchú</p>
-            <div class="book-blurb">
-                <p>In tenth-century Ireland, a young warrior rises from the ashes of his murdered family to challenge the Viking invaders and the fractured kings who let them reign. Brian Boru's journey from outlaw to High King is a story of ambition, sacrifice, and the terrible price of unity.</p>
-                <p>From the windswept cliffs of Clare to the blood-soaked battlefield of Clontarf, BORU brings medieval Ireland to vivid life—a world of treacherous alliances, ancient rivalries, and the relentless pursuit of an impossible dream.</p>
-            </div>
-            <div class="buy-buttons">
-                <a href="#" class="btn-gold">Coming Soon on Amazon</a>
-                <a href="#" class="btn-outline">Add to Goodreads shelf</a>
-            </div>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-inner">
+        <p class="footer-copyright">© Barra Ó Murchú 2026</p>
+        <div class="footer-social">
+            <a href="#">Instagram</a>
+            <span>|</span>
+            <a href="#">Facebook</a>
+            <span>|</span>
+            <a href="#">Goodreads</a>
+            <span>|</span>
+            <a href="#">Amazon</a>
         </div>
-    </section>
-
-    <!-- Coming Soon -->
-    <section class="coming-soon">
-        <div class="coming-soon-inner">
-            <h2 class="section-title">Coming Soon</h2>
-            <div class="future-book-card">
-                <p class="future-book-title">New Title</p>
-                <p class="future-book-status">Coming Soon</p>
-            </div>
+        <div class="footer-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <p class="footer-copyright">© Barra Ó Murchú 2026</p>
-            <div class="footer-social">
-                <a href="#">Instagram</a>
-                <span>|</span>
-                <a href="#">Facebook</a>
-                <span>|</span>
-                <a href="#">Goodreads</a>
-                <span>|</span>
-                <a href="#">Amazon</a>
-            </div>
-            <div class="footer-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>
