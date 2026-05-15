@@ -1,0 +1,189 @@
+/* Responsive overrides for inline-styled grid layouts.
+   Hooks (class names) are added to each component's outer grid container.
+   Mobile-first these are wide overrides only — the desktop styles live in JSX. */
+
+/* ---------- Tablet ≤ 900px ---------- */
+@media (max-width: 900px) {
+  /* Header: tighten gaps, drop social row */
+  .site-header-row {
+    gap: 20px !important;
+  }
+  .site-header-social,
+  .site-header-divider {
+    display: none !important;
+  }
+  .site-header-nav {
+    gap: 18px !important;
+  }
+
+  /* Home — About preview stacks (portrait above text) */
+  .home-about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+    max-width: 560px !important;
+    text-align: center;
+  }
+  .home-about-grid .home-about-portrait-wrap {
+    display: flex; justify-content: center;
+  }
+  .home-about-grid .home-about-body { max-width: 100% !important; }
+  .home-about-grid .home-about-body p { margin-inline: auto; }
+
+  /* Featured-books and testimonials grids → 2 columns */
+  .featured-books-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 40px !important;
+  }
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  /* Newsletter banner — stack the 3 columns into a single column */
+  .newsletter-banner-inner {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    text-align: left;
+  }
+  .newsletter-banner-eyebrow {
+    writing-mode: horizontal-tb !important;
+    transform: none !important;
+    padding-right: 0 !important;
+  }
+  .newsletter-banner-cta a {
+    width: fit-content;
+  }
+
+  /* Books index — each row stacks (cover above body) */
+  .books-row {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    grid-template-areas: "cover" "body" !important;
+  }
+  .books-row .books-row-cover {
+    text-align: center !important;
+  }
+
+  /* Book detail hero — stack cover above body */
+  .book-detail-hero {
+    grid-template-columns: 1fr !important;
+    gap: 56px !important;
+    justify-items: center;
+    text-align: center;
+  }
+  .book-detail-hero > div { max-width: 600px; }
+  .book-detail-hero p { margin-inline: auto; }
+
+  /* Book detail buy panel — seal above formats */
+  .book-detail-buy {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    gap: 32px;
+  }
+  .book-detail-buy > div {
+    margin-left: 0 !important;
+  }
+  .book-detail-buy-formats {
+    margin-inline: auto;
+  }
+
+  /* Contact grid — single column, form below the aside */
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+}
+
+/* ---------- Phone ≤ 560px ---------- */
+@media (max-width: 560px) {
+  /* Header — collapse to wordmark + tight nav */
+  .site-header-row {
+    gap: 12px !important;
+    height: 64px !important;
+  }
+  .site-header-wordmark {
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
+  }
+  .site-header-nav {
+    gap: 14px !important;
+  }
+  .site-header-nav a {
+    font-size: 10px !important;
+    letter-spacing: 0.14em !important;
+    padding-bottom: 2px !important;
+  }
+  .site-header-brand img {
+    width: 22px !important; height: 22px !important;
+  }
+
+  /* Hero CTAs stack */
+  .home-hero-ctas {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+  }
+  .home-hero-ctas .btn { width: 100% !important; }
+
+  /* Featured + testimonials drop to 1 column */
+  .featured-books-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Newsletter feature CTA fills width */
+  .home-newsletter-cta a {
+    width: 100% !important;
+    padding-inline: 16px !important;
+  }
+
+  /* Home about portrait scales */
+  .home-about-portrait {
+    width: 100% !important;
+    max-width: 380px !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+  }
+
+  /* Books row eyebrow + title scale via clamp; just make sure ctaRow wraps */
+  .books-row-cta-row {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+  .books-row-cta-row .btn { width: 100%; }
+
+  /* Contact form: two-column name+email collapses */
+  .contact-form-row {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  .contact-form-wrap {
+    padding: 32px 20px !important;
+  }
+  .contact-form-actions {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+  .contact-form-actions .btn { width: 100%; }
+
+  /* Book detail buy CTA wraps full width */
+  .book-detail-buy-cta { width: 100%; }
+  .book-detail-buy-cta .btn { width: 100%; }
+}
+
+/* ---------- Tiny phones ≤ 380px (further trim) ---------- */
+@media (max-width: 380px) {
+  .site-header-nav { gap: 10px !important; }
+  .site-header-nav a {
+    font-size: 9.5px !important;
+    letter-spacing: 0.10em !important;
+  }
+  .site-header-wordmark {
+    /* drop wordmark; keep mark only */
+    display: none !important;
+  }
+}
