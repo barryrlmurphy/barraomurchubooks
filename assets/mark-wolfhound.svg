@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="currentColor">
+  
+
+  
+  <path d="M 14 40&#xA;           C 8 42, 4 48, 3 58&#xA;           C 6 58, 9 56, 12 52&#xA;           C 14 48, 16 46, 18 45 Z"></path>
+
+  
+  <path d="M 14 40&#xA;           L 14 36&#xA;           L 18 32&#xA;           L 24 30&#xA;           L 30 28&#xA;           L 36 26&#xA;           L 42 25&#xA;           L 47 22&#xA;           L 51 19&#xA;           L 54 17&#xA;           L 53 20&#xA;           L 53 22&#xA;           L 56 23&#xA;           L 60 25&#xA;           L 66 27&#xA;           L 72 30&#xA;           L 74 33&#xA;           L 73 34&#xA;           L 67 35&#xA;           L 60 35&#xA;           L 56 34&#xA;           L 51 35&#xA;           L 47 38&#xA;           L 45 44&#xA;           L 44 47&#xA;           L 38 49&#xA;           L 30 49&#xA;           L 22 48&#xA;           L 16 46 Z"></path>
+
+  
+  <circle cx="63" cy="30" r="0.9" fill="#e8dcc4"></circle>
+
+  
+  <path d="M 44 47 L 43 64 L 45 64 L 46 47 Z"></path>
+  <path d="M 38 49 L 37 64 L 39 64 L 40 49 Z"></path>
+
+  
+  <path d="M 24 48 L 22 56 L 24 64 L 26 64 L 25 56 L 26 48 Z"></path>
+  <path d="M 18 47 L 16 56 L 18 64 L 20 64 L 19 56 L 20 47 Z"></path>
+
+  
+  <path d="M 28 26 L 28 23 M 34 25 L 34 22 M 40 24 L 40 21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></path>
+
+  
+  <path d="M 6 70 L 74 70" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"></path>
+
+  
+  <path d="M 12 68 L 10 70 M 14 68 L 14 70 M 16 68 L 18 70&#xA;           M 36 68 L 34 70 M 38 68 L 38 70 M 40 68 L 42 70&#xA;           M 58 68 L 56 70 M 60 68 L 60 70 M 62 68 L 64 70" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"></path>
+</svg>
