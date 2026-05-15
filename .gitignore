@@ -45,9 +45,3 @@ Thumbs.db
 .vscode
 
 # images
-assets/images/
-uploads/
-*.png
-*.jpg
-*.jpeg
-*.svg
