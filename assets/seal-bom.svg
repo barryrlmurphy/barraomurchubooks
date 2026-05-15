@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  
+  <defs>
+    <radialGradient id="wax" cx="40%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#9a2a1d"></stop>
+      <stop offset="60%" stop-color="#7a2218"></stop>
+      <stop offset="100%" stop-color="#5d180f"></stop>
+    </radialGradient>
+  </defs>
+  
+  <path d="M60 8&#xA;           C 88 8, 112 30, 112 60&#xA;           C 113 86, 92 110, 62 112&#xA;           C 32 113, 8 92, 7 62&#xA;           C 6 32, 30 9, 60 8 Z" fill="url(#wax)"></path>
+  
+  <circle cx="60" cy="60" r="46" fill="none" stroke="#e8dcc4" stroke-width="1" opacity="0.4"></circle>
+  <circle cx="60" cy="60" r="42" fill="none" stroke="#e8dcc4" stroke-width="0.5" opacity="0.3"></circle>
+  
+  <text x="60" y="71" font-family="Cinzel, &#39;Trajan Pro&#39;, Georgia, serif" font-weight="700" font-size="28" letter-spacing="2" text-anchor="middle" fill="#e8dcc4">BÓM</text>
+  
+  <text x="60" y="92" font-family="Cinzel, Georgia, serif" font-weight="600" font-size="8" letter-spacing="3" text-anchor="middle" fill="#e8dcc4" opacity="0.6">EST. MMXV</text>
+</svg>
