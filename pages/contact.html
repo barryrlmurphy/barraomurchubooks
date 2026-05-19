@@ -370,7 +370,13 @@
               </form>
             </div>
 
-            <div class="contact-success" role="alert" aria-live="polite">
+            <div
+              id="contact-success"
+              class="contact-success"
+              role="alert"
+              aria-live="polite"
+              style="display: none"
+            >
               <img
                 src="../assets/seal-bom.svg"
                 alt=""
@@ -520,12 +526,16 @@
     <script src="../scripts/main.js"></script>
     <script src="../scripts/contact.js"></script>
 
+    <!-- EmailJS Contact Form Service   -->
     <script type="text/javascript">
       window.onload = function () {
         const contactForm = document.getElementById('contact-form');
+        const successContainer = document.getElementById('contact-success');
+        const backBtn = document.getElementById('success-back-btn');
 
+        // Form submission processing
         contactForm.addEventListener('submit', function (event) {
-          event.preventDefault(); // Prevents page reload
+          event.preventDefault();
 
           const submitButton = contactForm.querySelector(
             'button[type="submit"]'
@@ -534,11 +544,10 @@
           submitButton.textContent = 'SENDING...';
           submitButton.disabled = true;
 
-          // Cleanly package your credentials and parameters for the raw API call
           const payload = {
             service_id: 'service_ktad75s',
             template_id: 'template_9psvics',
-            user_id: '9XNBOpsVOxWnoTnyE', // Your EmailJS Public Key
+            user_id: '9XNBOpsVOxWnoTnyE',
             template_params: {
               name: contactForm.querySelector('[name="name"]').value,
               email: contactForm.querySelector('[name="email"]').value,
@@ -546,7 +555,6 @@
             },
           };
 
-          // Direct cloud post request bypassing any library files
           fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
             headers: {
@@ -556,7 +564,13 @@
           })
             .then((response) => {
               if (response.ok) {
-                alert('Thank you! Your enquiry has been sent.');
+                // 1. Hide the input form entirely
+                contactForm.style.display = 'none';
+
+                // 2. Unhide your beautiful custom success screen state
+                successContainer.style.display = 'block';
+
+                // 3. Clear the form data fields out behind the scenes
                 contactForm.reset();
               } else {
                 return response.text().then((text) => {
@@ -565,13 +579,26 @@
               }
             })
             .catch((error) => {
-              alert('Failed to send message. Error details: ' + error.message);
+              // Keeps an alert fallback active ONLY for catastrophic system/network errors
+              alert(
+                'Could not deliver message. Please check connection and try again.'
+              );
             })
             .finally(() => {
               submitButton.textContent = originalButtonText;
               submitButton.disabled = false;
             });
         });
+
+        // Make your custom "Back to the books" dataset button navigate correctly
+        if (backBtn) {
+          backBtn.addEventListener('click', function () {
+            const targetUrl = this.getAttribute('data-href');
+            if (targetUrl) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
       };
     </script>
   </body>
