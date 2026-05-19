@@ -303,6 +303,9 @@
 .book-card__cover-image {
   max-width: 420px;
 }
+.book-card__cover-image--shrink {
+  max-width: 320px;
+}
 .book-card__cover-image--stretch {
   height: 672px;
 }
