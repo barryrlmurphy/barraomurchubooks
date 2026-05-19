@@ -523,15 +523,18 @@
     <script type="text/javascript" src="../scripts/email.min.js"></script>
     <script type="text/javascript">
       (function () {
-        // We explicitly pass the EmailJS API string here to force it off your server path
-        emailjs.init('9XNBOpsVOxWnoTnyE', 'https://emailjs.com');
+        // Correct v4 Initialization Object Syntax
+        emailjs.init({
+          publicKey: '9XNBOpsVOxWnoTnyE',
+          origin: 'https://api.emailjs.com', // Explicitly binds the request to the cloud server endpoint
+        });
       })();
 
       window.onload = function () {
         const contactForm = document.getElementById('contact-form');
 
         contactForm.addEventListener('submit', function (event) {
-          event.preventDefault(); // Prevents page reload
+          event.preventDefault();
 
           const submitButton = contactForm.querySelector(
             'button[type="submit"]'
@@ -543,14 +546,14 @@
           const serviceID = 'service_ktad75s';
           const templateID = 'template_9psvics';
 
-          // Build the manual payload dictionary mapping form element values directly
+          // Gather form element values cleanly
           const templateParams = {
             name: contactForm.querySelector('[name="name"]').value,
             email: contactForm.querySelector('[name="email"]').value,
             message: contactForm.querySelector('[name="message"]').value,
           };
 
-          // Using .send() instead of .sendForm() forces it to bypass form attributes completely
+          // Dispatch request via standard payload parameters
           emailjs
             .send(serviceID, templateID, templateParams)
             .then(() => {
