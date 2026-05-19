@@ -523,17 +523,16 @@
     <script type="text/javascript" src="../scripts/email.min.js"></script>
     <script type="text/javascript">
       (function () {
-        // Replace with your actual Public Key from Step 3
-        emailjs.init('9XNBOpsVOxWnoTnyE');
+        // We explicitly pass the EmailJS API string here to force it off your server path
+        emailjs.init('9XNBOpsVOxWnoTnyE', 'https://emailjs.com');
       })();
 
       window.onload = function () {
         const contactForm = document.getElementById('contact-form');
 
         contactForm.addEventListener('submit', function (event) {
-          event.preventDefault(); // Prevents the page from refreshing on submit
+          event.preventDefault(); // Prevents page reload
 
-          // Change the button text to show the user it is processing
           const submitButton = contactForm.querySelector(
             'button[type="submit"]'
           );
@@ -541,25 +540,27 @@
           submitButton.textContent = 'SENDING...';
           submitButton.disabled = true;
 
-          // Replace these placeholders with your actual IDs from Steps 1 & 2
           const serviceID = 'service_ktad75s';
           const templateID = 'template_9psvics';
 
-          // 'this' passes the entire HTML form element directly to EmailJS
+          // Build the manual payload dictionary mapping form element values directly
+          const templateParams = {
+            name: contactForm.querySelector('[name="name"]').value,
+            email: contactForm.querySelector('[name="email"]').value,
+            message: contactForm.querySelector('[name="message"]').value,
+          };
+
+          // Using .send() instead of .sendForm() forces it to bypass form attributes completely
           emailjs
-            .sendForm(serviceID, templateID, this)
+            .send(serviceID, templateID, templateParams)
             .then(() => {
               alert('Thank you! Your enquiry has been sent.');
-              contactForm.reset(); // Clears out the form inputs
+              contactForm.reset();
             })
             .catch((error) => {
-              alert(
-                'Failed to send message. Please try again. Error: ' +
-                  JSON.stringify(error)
-              );
+              alert('Failed to send message. Error: ' + JSON.stringify(error));
             })
             .finally(() => {
-              // Revert the button status back to normal
               submitButton.textContent = originalButtonText;
               submitButton.disabled = false;
             });
