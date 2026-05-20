@@ -1538,6 +1538,12 @@
 .social-row--light .social-link__label {
   color: var(--on-ink-3);
 }
+.social-link-icons--header {
+  font-size: 20px;
+}
+.social-link-icons--footer {
+  font-size: 30px;
+}
 
 /* ============================================================
    UTILITY CLASSES
