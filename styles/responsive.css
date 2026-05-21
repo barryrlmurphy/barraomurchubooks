@@ -109,6 +109,11 @@
     gap: 48px !important;
   }
 
+  /* Books Screen Buttons */
+  .bd-buy-row {
+    justify-content: center;
+  }
+
   /* Footer */
   .site-footer__cols {
     grid-template-columns: 1fr 1fr;
