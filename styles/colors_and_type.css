@@ -10,121 +10,135 @@
 /* ---------- 1. Colour tokens ---------- */
 :root {
   /* Surfaces */
-  --vellum:           #e8dcc4;   /* default page surface — aged paper */
-  --vellum-light:     #efe6d2;   /* slightly lifted card surface on vellum */
-  --vellum-dark:      #d8cab0;   /* row-stripe, hovered list item */
-  --ink:              #1a1410;   /* page surface inverted; primary text on vellum */
-  --ink-deep:         #0d0a08;   /* darker still — hover state of ink buttons */
-  --ink-rule:         rgba(26, 20, 16, 0.12);  /* hairline on vellum */
-  --vellum-rule:      rgba(232, 220, 196, 0.16); /* hairline on ink */
+  --vellum: #e8dcc4; /* default page surface — aged paper */
+  --vellum-light: #efe6d2; /* slightly lifted card surface on vellum */
+  --vellum-dark: #d8cab0; /* row-stripe, hovered list item */
+  --ink: #1a1410; /* page surface inverted; primary text on vellum */
+  --ink-deep: #0d0a08; /* darker still — hover state of ink buttons */
+  --ink-rule: rgba(26, 20, 16, 0.12); /* hairline on vellum */
+  --vellum-rule: rgba(232, 220, 196, 0.16); /* hairline on ink */
 
   /* Accents — used sparingly */
-  --candle:           #b8893a;   /* warm reading-light gold — single brand accent */
-  --candle-bright:    #cc9a4b;   /* hovered candle button */
-  --candle-deep:      #8a661f;   /* pressed candle, candle text on vellum */
-  --oxblood:          #7a2218;   /* wax-seal, dropped initial, flourishes */
-  --oxblood-deep:     #5d180f;
-  --moss:             #4a5239;   /* deep dull green — tags, "in stock", rare */
+  --candle: #b8893a; /* warm reading-light gold — single brand accent */
+  --candle-bright: #cc9a4b; /* hovered candle button */
+  --candle-deep: #8a661f; /* pressed candle, candle text on vellum */
+  --oxblood: #7a2218; /* wax-seal, dropped initial, flourishes */
+  --oxblood-deep: #5d180f;
+  --moss: #4a5239; /* deep dull green — tags, "in stock", rare */
 
   /* Text — warm-grey ladder */
-  --text-1:           #1a1410;   /* primary body & headlines */
-  --text-2:           #2d251e;   /* strong but slightly softer */
-  --text-3:           #4a3f33;   /* secondary */
-  --text-4:           #736857;   /* smoke — metadata */
-  --text-5:           #a89b85;   /* ash — captions, low-priority */
-  --text-6:           #c4b89e;   /* very low priority */
+  --text-1: #1a1410; /* primary body & headlines */
+  --text-2: #2d251e; /* strong but slightly softer */
+  --text-3: #4a3f33; /* secondary */
+  --text-4: #736857; /* smoke — metadata */
+  --text-5: #a89b85; /* ash — captions, low-priority */
+  --text-6: #c4b89e; /* very low priority */
 
   /* Text on ink */
-  --on-ink-1:         #e8dcc4;
-  --on-ink-2:         #c4b89e;
-  --on-ink-3:         #968a72;
+  --on-ink-1: #e8dcc4;
+  --on-ink-2: #c4b89e;
+  --on-ink-3: #968a72;
 
   /* Functional */
-  --focus-ring:       rgba(184, 137, 58, 0.55); /* candle, 55% — used for keyboard focus */
+  --focus-ring: rgba(
+    184,
+    137,
+    58,
+    0.55
+  ); /* candle, 55% — used for keyboard focus */
 
   /* ---------- 2. Spacing scale (8px base) ---------- */
-  --space-1:  4px;
-  --space-2:  8px;
-  --space-3:  12px;
-  --space-4:  16px;
-  --space-5:  24px;
-  --space-6:  32px;
-  --space-7:  48px;
-  --space-8:  64px;
-  --space-9:  96px;   /* section rhythm */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px; /* section rhythm */
   --space-10: 128px;
 
   /* ---------- 3. Radii ---------- */
   --radius-none: 0px;
-  --radius-xs:   2px;   /* chip, wax-seal-style label */
-  --radius-sm:   4px;   /* button, input — the most common radius */
-  --radius-md:   6px;   /* rare; some containers */
+  --radius-xs: 2px; /* chip, wax-seal-style label */
+  --radius-sm: 4px; /* button, input — the most common radius */
+  --radius-md: 6px; /* rare; some containers */
   /* No fully-rounded pills anywhere. */
 
   /* ---------- 4. Borders ---------- */
-  --border-hairline:      1px solid var(--ink-rule);
+  --border-hairline: 1px solid var(--ink-rule);
   --border-hairline-dark: 1px solid var(--vellum-rule);
-  --border-double:        1px solid var(--text-1);   /* used in tandem with ::before pseudo for double-rule */
+  --border-double: 1px solid var(--text-1); /* used in tandem with ::before pseudo for double-rule */
 
   /* ---------- 5. Shadow / elevation (almost unused) ---------- */
-  --shadow-cover:  0 1px 0 rgba(26,20,16,0.10), 0 8px 18px -8px rgba(26,20,16,0.18);
-  --shadow-seal:   0 6px 14px -6px rgba(26,20,16,0.30);
+  --shadow-cover:
+    0 1px 0 rgba(26, 20, 16, 0.1), 0 8px 18px -8px rgba(26, 20, 16, 0.18);
+  --shadow-seal: 0 6px 14px -6px rgba(26, 20, 16, 0.3);
 
   /* ---------- 6. Type families ---------- */
   --font-display: 'Cinzel', 'Trajan Pro', 'Cormorant Garamond', Georgia, serif;
-  --font-serif:   'EB Garamond', 'Adobe Caslon Pro', 'Garamond', 'Iowan Old Style', Georgia, serif;
-  --font-mono:    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --font-serif:
+    'EB Garamond', 'Adobe Caslon Pro', 'Garamond', 'Iowan Old Style', Georgia,
+    serif;
+  --font-mono:
+    'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   /* ---------- 7. Type sizes ---------- */
-  --fs-display-xxl: 80px;   /* book detail title */
-  --fs-display-xl:  64px;   /* homepage hero */
-  --fs-display-lg:  48px;   /* section opener */
-  --fs-display-md:  36px;   /* tertiary headline */
-  --fs-h1:          32px;
-  --fs-h2:          24px;
-  --fs-h3:          20px;
-  --fs-body-lg:     20px;   /* long-form reading body */
-  --fs-body:        18px;   /* default body */
-  --fs-body-sm:     16px;
-  --fs-caption:     14px;
-  --fs-micro:       12px;
-  --fs-eyebrow:     13px;   /* uppercase eyebrows */
+  --fs-display-xxl: 80px; /* book detail title */
+  --fs-display-xl: 64px; /* homepage hero */
+  --fs-display-lg: 48px; /* section opener */
+  --fs-display-md: 36px; /* tertiary headline */
+  --fs-h1: 32px;
+  --fs-h2: 24px;
+  --fs-h3: 20px;
+  --fs-body-lg: 20px; /* long-form reading body */
+  --fs-body: 18px; /* default body */
+  --fs-body-sm: 16px;
+  --fs-caption: 14px;
+  --fs-micro: 12px;
+  --fs-eyebrow: 13px; /* uppercase eyebrows */
 
   /* ---------- 8. Line heights ---------- */
-  --lh-tight:    1.05;
-  --lh-snug:     1.2;
-  --lh-cozy:     1.4;
-  --lh-body:     1.7;
-  --lh-loose:    1.85;
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-cozy: 1.4;
+  --lh-body: 1.7;
+  --lh-loose: 1.85;
 
   /* ---------- 9. Tracking (letter-spacing) ---------- */
-  --tracking-tight:     -0.02em;
-  --tracking-normal:    0em;
-  --tracking-eyebrow:   0.16em;     /* ALL-CAPS eyebrows */
-  --tracking-wordmark:  0.08em;
-  --tracking-display:   -0.01em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-eyebrow: 0.16em; /* ALL-CAPS eyebrows */
+  --tracking-wordmark: 0.08em;
+  --tracking-display: -0.01em;
 
   /* ---------- 10. Layout ---------- */
-  --measure-prose:  64ch;     /* body reading column */
-  --measure-long:   72ch;     /* long-form essay column */
-  --content-max:    1280px;
-  --content-pad:    64px;     /* desktop outer gutter */
+  --measure-prose: 64ch; /* body reading column */
+  --measure-long: 72ch; /* long-form essay column */
+  --content-max: 1280px;
+  --content-pad: 64px; /* desktop outer gutter */
 
   /* ---------- 11. Motion ---------- */
-  --ease:           cubic-bezier(0.4, 0, 0.2, 1);
-  --duration-fast:  120ms;
-  --duration-base:  160ms;
-  --duration-slow:  240ms;
-  --duration-fade:  300ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration-base: 160ms;
+  --duration-slow: 240ms;
+  --duration-fade: 300ms;
 }
 
 /* ============================================================
    Base resets + semantic defaults
    ============================================================ */
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   background: var(--vellum);
   color: var(--text-1);
@@ -139,7 +153,7 @@ html, body {
 /* Paper-grain texture overlay — barely perceptible. */
 .surface-vellum {
   background-color: var(--vellum);
-  background-image: url('texture-paper.svg');
+  background-image: url('../assets/texture-paper.svg');
   background-repeat: repeat;
   background-size: 320px 320px;
 }
@@ -148,15 +162,19 @@ html, body {
 .surface-ink {
   background-color: var(--ink);
   color: var(--on-ink-1);
-  background-image:
-    radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.35) 100%);
+  background-image: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
 }
 
 /* ============================================================
    Typography classes
    ============================================================ */
 
-.display-xxl, h1.display {
+.display-xxl,
+h1.display {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--fs-display-xxl);
@@ -195,7 +213,8 @@ html, body {
   margin: 0;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: var(--fs-h1);
@@ -205,7 +224,8 @@ h1, .h1 {
   color: var(--text-1);
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: var(--fs-h2);
@@ -215,7 +235,8 @@ h2, .h2 {
   color: var(--text-1);
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-family: var(--font-serif);
   font-weight: 600;
   font-size: var(--fs-h3);
@@ -234,9 +255,12 @@ h3, .h3 {
   margin: 0;
 }
 
-.eyebrow--candle { color: var(--candle-deep); }
+.eyebrow--candle {
+  color: var(--candle-deep);
+}
 
-p, .body {
+p,
+.body {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: var(--fs-body);
@@ -271,23 +295,39 @@ p, .body {
   color: var(--text-4);
 }
 
-em, .italic { font-style: italic; }
-strong, .strong { font-weight: 600; color: var(--text-1); }
+em,
+.italic {
+  font-style: italic;
+}
+strong,
+.strong {
+  font-weight: 600;
+  color: var(--text-1);
+}
 
 /* ============================================================
    Inline link — body anchor
    ============================================================ */
-a, .link {
+a,
+.link {
   color: var(--text-1);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   padding-bottom: 1px;
   transition: border-color var(--duration-base) var(--ease);
 }
-a:hover, .link:hover { border-bottom-color: var(--candle); }
+a:hover,
+.link:hover {
+  border-bottom-color: var(--candle);
+}
 
-.surface-ink a, .surface-ink .link { color: var(--on-ink-1); }
-.surface-ink a:hover { border-bottom-color: var(--candle); }
+.surface-ink a,
+.surface-ink .link {
+  color: var(--on-ink-1);
+}
+.surface-ink a:hover {
+  border-bottom-color: var(--candle);
+}
 
 /* ============================================================
    Buttons
@@ -307,40 +347,58 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
   border: 1px solid transparent;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background-color var(--duration-base) var(--ease),
-              color var(--duration-base) var(--ease),
-              transform var(--duration-fast) var(--ease);
+  transition:
+    background-color var(--duration-base) var(--ease),
+    color var(--duration-base) var(--ease),
+    transform var(--duration-fast) var(--ease);
   text-decoration: none;
 }
-.btn:hover { border-bottom-color: transparent; }
-.btn:active { transform: scale(0.98); }
-.btn:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+.btn:hover {
+  border-bottom-color: transparent;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
 
 .btn--ink {
   background: var(--ink);
   color: var(--on-ink-1);
 }
-.btn--ink:hover { background: var(--ink-deep); }
+.btn--ink:hover {
+  background: var(--ink-deep);
+}
 
 .btn--candle {
   background: var(--candle);
   color: var(--ink);
 }
-.btn--candle:hover { background: var(--candle-bright); }
+.btn--candle:hover {
+  background: var(--candle-bright);
+}
 
 .btn--ghost {
   background: transparent;
   color: var(--text-1);
   border-color: var(--text-1);
 }
-.btn--ghost:hover { background: var(--text-1); color: var(--vellum); }
+.btn--ghost:hover {
+  background: var(--text-1);
+  color: var(--vellum);
+}
 
 .btn--ghost-light {
   background: transparent;
   color: var(--on-ink-1);
   border-color: var(--on-ink-1);
 }
-.btn--ghost-light:hover { background: var(--on-ink-1); color: var(--ink); }
+.btn--ghost-light:hover {
+  background: var(--on-ink-1);
+  color: var(--ink);
+}
 
 .btn--text {
   background: transparent;
@@ -351,7 +409,10 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
   border-radius: 0;
   letter-spacing: var(--tracking-eyebrow);
 }
-.btn--text:hover { color: var(--candle-deep); border-bottom-color: var(--candle); }
+.btn--text:hover {
+  color: var(--candle-deep);
+  border-bottom-color: var(--candle);
+}
 
 /* ============================================================
    Inputs
@@ -367,15 +428,22 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
   background: var(--vellum-light);
   border: 1px solid var(--ink-rule);
   border-radius: var(--radius-sm);
-  transition: border-color var(--duration-base) var(--ease),
-              box-shadow var(--duration-base) var(--ease);
+  transition:
+    border-color var(--duration-base) var(--ease),
+    box-shadow var(--duration-base) var(--ease);
 }
 .field:focus {
   outline: none;
   border-color: var(--text-1);
   box-shadow: 0 0 0 3px var(--focus-ring);
 }
-.field--textarea { height: auto; padding: var(--space-3) var(--space-4); min-height: 160px; resize: vertical; line-height: var(--lh-cozy); }
+.field--textarea {
+  height: auto;
+  padding: var(--space-3) var(--space-4);
+  min-height: 160px;
+  resize: vertical;
+  line-height: var(--lh-cozy);
+}
 
 .label {
   display: block;
@@ -398,7 +466,9 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
   border-radius: var(--radius-none);
 }
 
-.card--lg { padding: var(--space-6); }
+.card--lg {
+  padding: var(--space-6);
+}
 
 .card--ink {
   background: var(--ink);
@@ -438,15 +508,25 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
   border: 1px solid var(--text-3);
   border-radius: var(--radius-xs);
 }
-.chip--moss { color: var(--moss); border-color: var(--moss); }
-.chip--candle { color: var(--candle-deep); border-color: var(--candle); }
-.chip--oxblood { color: var(--oxblood); border-color: var(--oxblood); }
+.chip--moss {
+  color: var(--moss);
+  border-color: var(--moss);
+}
+.chip--candle {
+  color: var(--candle-deep);
+  border-color: var(--candle);
+}
+.chip--oxblood {
+  color: var(--oxblood);
+  border-color: var(--oxblood);
+}
 
 /* ============================================================
    Wax-seal device (used once per fold on book detail)
    ============================================================ */
 .seal {
-  width: 88px; height: 88px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background: var(--oxblood);
   color: var(--vellum);
@@ -526,8 +606,12 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
   border-bottom: 1px solid transparent;
   padding-bottom: 2px;
 }
-.nav-link:hover { border-bottom-color: var(--candle); }
-.nav-link--active { border-bottom-color: var(--text-1); }
+.nav-link:hover {
+  border-bottom-color: var(--candle);
+}
+.nav-link--active {
+  border-bottom-color: var(--text-1);
+}
 
 /* ============================================================
    Footer — full-bleed ink slab
@@ -543,24 +627,27 @@ a:hover, .link:hover { border-bottom-color: var(--candle); }
    Responsive breakpoints
    ============================================================ */
 @media (max-width: 1024px) {
-  :root { --content-pad: 32px; --space-9: 80px; }
+  :root {
+    --content-pad: 32px;
+    --space-9: 80px;
+  }
 }
 @media (max-width: 768px) {
   :root {
     --fs-display-xxl: 56px;
-    --fs-display-xl:  44px;
-    --fs-display-lg:  32px;
-    --fs-h1:          26px;
-    --content-pad:    24px;
-    --space-9:        64px;
+    --fs-display-xl: 44px;
+    --fs-display-lg: 32px;
+    --fs-h1: 26px;
+    --content-pad: 24px;
+    --space-9: 64px;
   }
 }
 @media (max-width: 480px) {
   :root {
     --fs-display-xxl: 40px;
-    --fs-display-xl:  32px;
-    --fs-display-lg:  24px;
-    --content-pad:    20px;
-    --space-9:        48px;
+    --fs-display-xl: 32px;
+    --fs-display-lg: 24px;
+    --content-pad: 20px;
+    --space-9: 48px;
   }
 }

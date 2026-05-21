@@ -270,8 +270,15 @@
     font-size: 9px !important;
     letter-spacing: 0.1em !important;
   }
-  .site-header-wordmark {
-    /* drop wordmark; keep mark only */
-    display: none !important;
+  .hero__title {
+    font-size: clamp(52px, 9vw, 132px) !important;
+  }
+
+  /* Featured Books */
+  .book-card__cover-image {
+    max-width: 330px !important;
+  }
+  .book-card__cover-image--stretch {
+    height: 528px !important;
   }
 }

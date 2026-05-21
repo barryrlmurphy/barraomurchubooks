@@ -1,9 +1,5 @@
 /* ============================================================
    main.css — layout, component, and page styles
-   Design tokens live in assets/colors_and_type.css.
-   Responsive grid overrides live in assets/responsive.css.
-   url() paths are relative to this file (/styles/main.css),
-   so ../assets/ resolves to /assets/ at the project root.
    ============================================================ */
 
 /* ---------- Page fade ---------- */
@@ -204,9 +200,6 @@
   grid-template-columns: 440px 1fr;
   gap: 96px;
   align-items: center;
-}
-.home-about-portrait-wrap {
-  /* centred on small screens via responsive.css */
 }
 .home-about-portrait {
   width: 440px;
