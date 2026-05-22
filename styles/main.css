@@ -519,6 +519,12 @@
   color: var(--on-ink-3);
   margin-top: 24px;
 }
+.nl-feature__fineprint a {
+  color: var(--on-ink-3);
+}
+.nl-feature__fineprint a:hover {
+  cursor: pointer !important;
+}
 
 /* ============================================================
    NEWSLETTER BANNER (thin ribbon above footer)
@@ -559,11 +565,15 @@
 .nl-banner__lede {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--text-3);
   margin: 0;
   max-width: 60ch;
+}
+.nl-banner__copy a {
+  font-size: 13px;
+  text-transform: uppercase;
 }
 
 /* ============================================================
@@ -1335,6 +1345,9 @@
   gap: 12px;
   max-width: 1200px;
   margin: 0 auto;
+}
+.site-footer__bottom a {
+  color: var(--on-ink-3);
 }
 .site-footer__dot {
   opacity: 0.5;
