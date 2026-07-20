@@ -108,7 +108,7 @@
   position: relative;
   min-height: min(86vh, 760px);
   background: var(--ink);
-  background-image: url('../assets/hero-boru.jpg');
+  background-image: url('../assets/hero-boru.png');
   background-size: cover;
   background-position: center right;
   color: var(--on-ink-1);
