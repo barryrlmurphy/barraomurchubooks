@@ -272,7 +272,7 @@
     gap: 8px !important;
   }
   .site-header-nav a {
-    font-size: 9px !important;
+    font-size: 7px !important;
     letter-spacing: 0.1em !important;
   }
   .hero__title {
@@ -281,7 +281,10 @@
 
   /* Featured Books */
   .book-card__cover-image {
-    max-width: 330px !important;
+    max-width: 270px !important;
+  }
+  .book-card__cover-image--shrink {
+    max-width: 270px !important;
   }
   .book-card__cover-image--stretch {
     height: 528px !important;
